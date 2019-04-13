@@ -1,3 +1,4 @@
+// adds item to the shopping list
 function addItem() {
     $('#js-shopping-list-form').on('submit', function(event) {
         // override form default
@@ -21,5 +22,16 @@ function addItem() {
     });
 }
 
+// check/uncheck item functionality
+function toggleCheck() {
+    // execute function when 'check' button is clicked
+    $('.shopping-item-toggle').on('click', function(event) {
+        // target 'shopping-item' class and add '&__checked' class to it
+        // $('.shopping-item').toggleClass('shopping-item__checked');
+        $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+    });
+}
+
 $(addItem);
+$(toggleCheck);
 
