@@ -25,13 +25,22 @@ function addItem() {
 // check/uncheck item functionality
 function toggleCheck() {
     // execute function when 'check' button is clicked
-    $('.shopping-item-toggle').on('click', function(event) {
+    $('ul').on('click', '.shopping-item-toggle', function(event) {
         // target 'shopping-item' class and add '&__checked' class to it
-        // $('.shopping-item').toggleClass('shopping-item__checked');
+        // had a problem where I couldnt target .shopping-item. i kept trying with the thought that it's a parent of 'this' but it wasn't
         $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
     });
 }
 
+// delete item functionality
+function deleteItem() {
+    // add click event to delete button
+    $('ul').on('click', '.shopping-item-delete', function() {
+        $(this).closest('li').remove();
+    })
+}
+
 $(addItem);
 $(toggleCheck);
+$(deleteItem);
 
